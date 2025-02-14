@@ -9,14 +9,6 @@ Este repositório foi criado com o objetivo de:
 - 📈 **Aprimorar técnicas de consulta**: JOINs, subconsultas, e manipulação de dados.
 - 🔍 **Explorar diferentes bancos de dados**: PostgreSQL, MySQL, SQLite e mais.
 
-## 📂 Estrutura do Repositório
-
-📁 **Fundamentos**: Introdução ao SQL e operações básicas.  
-📁 **Consultas Avançadas**: Exemplos de JOINs complexos, funções de janela e CTEs.  
-📁 **Manipulação de Dados**: Inserção, atualização e exclusão de registros.  
-📁 **Otimização**: Dicas e truques para otimizar suas consultas SQL.  
-📁 **Exercícios**: Desafios práticos para testar seus conhecimentos! 🎉  
-
 ## 🚀 Começando
 
 Para começar, clone o repositório:
