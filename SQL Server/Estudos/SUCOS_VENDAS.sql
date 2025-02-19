@@ -1,72 +1,125 @@
+-- Inserindo informações
 
--- Aula 2
---Criando banco de dados
-CREATE DATABASE SUCOS_VENDAS;
+--uma linha
 
--- Base de dados pelo assistente
-CREATE DATABASE SUCOS_VENDAS_2;
-
--- Remover basde de dados
-DROP DATABASE SUCOS_VENDAS_2;
-
--- Criar tabelas
-
---Clientes
-/*Colunas:
-CPF;
-Nome completo;
-Endereco completo;
-Data de nascimento;
-Idade;
-Genero;
-Limite de credito;
-Volume minimo de compra de produto;
-Se já realizou alguma compra na empresa.*/
-
-CREATE TABLE [TABELA DE CLIENTES]
+INSERT INTO [TABELA DE PRODUTOS] VALUES
 (
-[CPF] [CHAR] (11),
-[NOME] [VARCHAR] (100),
-[RUA] [VARCHAR] (150),
-[COMPLEMENTO] [VARCHAR] (150),
-[BAIRRO] [VARCHAR] (150),
-[ESTADO] [CHAR] (2),
-[CEP] [CHAR] (8),
-[DATA DE NASCIMENTO] [DATE],
-[IDADE] [SMALLINT],
-[SEXO] [CHAR] (1),
-[LIMITE DE CREDITO] [MONEY],
-[VOLUME DE COMPRA] [FLOAT],
-[PRIMEIRA COMPRA] [BIT]
-)
+'1040107',
+'Light - 350 ml - Melancia',
+'Lata',
+'350 ml',
+'Melancia',
+4.56
+);
+
+
+
+--varias linhas
+/*
+INSERT INTO [TABELA DE PRODUTOS] VALUES
+('1037797', 'Clean - 2 Litros - Laranja', 'PET', '2 Litros', 'Laranja', 16.01);
+INSERT INTO [TABELA DE PRODUTOS] VALUES
+('1000889', 'Sabor da Montanha - 700 ml - Uva', 'Garrafa', ' 700 ml ', 'Uva', 6.31);
+INSERT INTO [TABELA DE PRODUTOS] VALUES
+('1004327', 'Videira do Campo - 1,5 Litros - Melancia', 'PET', '1,5 Litros','Melancia',19.51);
+INSERT INTO [TABELA DE PRODUTOS] VALUES
+('1088126', 'Linha Citros - 1 Litro - Limão', 'PET', '1 Litro',' Limão',7.00);
+*/
+
+INSERT INTO [TABELA DE PRODUTOS] VALUES
+('1037797', 'Clean - 2 Litros - Laranja', 'PET', '2 Litros', 'Laranja', 16.01),
+('1000889', 'Sabor da Montanha - 700 ml - Uva', 'Garrafa', ' 700 ml ', 'Uva', 6.31),
+('1004327', 'Videira do Campo - 1,5 Litros - Melancia', 'PET', '1,5 Litros','Melancia',19.51),
+('1088126', 'Linha Citros - 1 Litro - Limão', 'PET', '1 Litro','Limão',7.00);
+
+
+
+INSERT INTO [TABELA DE CLIENTES]
+VALUES
+('00384393431','João da Silva','Rua Projetada A','Numero 233','Copacabana', 
+'Rio de janeiro','RJ','20000000','1965-03-21',57,'M',200000,3000.30,1),
+('00384393555','Maria Clara','Rua Projetada A','Numero 233','Copacabana',
+ 'Rio de janeiro','RJ','20000000','1975-03-21',47,'F',200000,3000.30, 0);
+
+ --ordem diferente
+
+/*INSERT INTO [TABELA DE PRODUTOS] 
+VALUES
+('5449310','Frescor do Verão - 350 ml - Limão','Lata','350 ml',2.45, 'Limão'),
+('1078680','Frescor do Verão - 350 ml -  Manga','Lata','350 ml',3.18, 'Manga');
+*/
+
+INSERT INTO [TABELA DE PRODUTOS] 
+([CODIGO DO PRODUTO], [NOME DO PRODUTO],[EMBALAGEM],[TAMANHO],[PRECO DE LISTA],[SABOR])
+VALUES
+('5449310','Frescor do Verão - 350 ml - Limão','Lata','350 ml',2.45, 'Limão'),
+('1078680','Frescor do Verão - 350 ml -  Manga','Lata','350 ml',3.18, 'Manga');
+
+ -- Restrição de chave primária
+ --chave não nula
+ INSERT INTO [TABELA DE PRODUTOS] VALUES
+(NULL,'Light - 350 ml - Melancia','Lata','350 ml','Melancia',4.56);
+
+ INSERT INTO [TABELA DE PRODUTOS] 
+ ([CODIGO DO PRODUTO], [NOME DO PRODUTO],[EMBALAGEM],[TAMANHO],[SABOR],[PRECO DE LISTA])
+VALUES
+(NULL,'Light - 350 ml - Melancia','Lata','350 ml','Melancia',4.56);
+
+ --chave unica
+ INSERT INTO [TABELA DE PRODUTOS] VALUES
+('1040107','Light - 350 ml - Melancia','Lata','350 ml','Melancia',4.56);
+
+
+-- Inserindo outros dados
+--Clientes
+INSERT INTO [TABELA DE CLIENTES]
+VALUES
+('1471156710','Erica Carvalho','R. Iriquitia',' ','Jardins','SP','80012212','1990-09-01',32,'F',1700000000,24500,0),
+('19290992743','Fernando Cavalcante','R. Dois de Fevereiro',' ','Agua Santa','RJ','22000000','2000-02-12',23,'M',1000000000,20000,1),
+('2600586709','Cesar Teixeira','Rua Conde de Bonfim',' ','Tijuca','RJ','22020001','2000-03-12',23,'M',1200000000,22000,0),
+('3623344710','Marcos Nogueira','Av. Pastor Martin Luther King Junior',' ','Inhauma','RJ','22002012','1995-01-13',28,'M',1100000000,22000,1),
+('492472718','Eduardo Jorge','R. Volta Grande',' ','Tijuca','RJ','22012002','1994-07-19',28,'M',750000000,9500,1),
+('50534475787','Abel Silva','Rua Humaita',' ','Humaita','RJ','22000212','1995-09-11',27,'M',1700000000,26000,0),
+('5576228758','Petra Oliveira','R. Benicio de Abreu',' ','Lapa','SP','88192029','1995-11-14',27,'F',700000000,16000,1),
+('5648641702','Paulo Cesar Mattos','Rua Helio Beltrao',' ','Tijuca','RJ','21002020','1991-08-30',31,'M',1200000000,22000,0),
+('5840119709','Gabriel Araujo','R. Manuel de Oliveira',' ','Santo Amaro','SP','80010221','1985-03-16',37,'M',1400000000,21000,1),
+('7771579779','Marcelo Mattos','R. Eduardo Luís Lopes',' ','Bras','SP','88202912','1992-03-25',30,'M',1200000000,20000,1),
+('8502682733','Valdeci da Silva','R. Srg. Edison de Oliveira',' ','Jardins','SP','82122020','1995-10-07',27,'M',1100000000,19000,0),
+('8719655770','Carlos Eduardo','Av. Gen. Guedes da Fontoura',' ','Jardins','SP','81192002','1983-12-20',39,'M',2000000000,24000,0),
+('9283760794','Edson Meilelles','R. Pinto de Azevedo',' ','Cidade Nova','RJ','22002002','1995-10-07',27,'M',1500000000,25000,1),
+('94387575700','Walber Lontra','R. Cel. Almeida',' ','Piedade','RJ','22000201','1989-06-20',33,'M',600000000,12000,1),
+('95939180787','Fabio Carvalho','R. dos Jacarandas da Peninsula',' ','Barra da Tijuca','RJ','22002020','1992-01-05',31,'M',900000000,18000,1);
+
 
 
 --Produtos
-
-/*Colunas:
-codigo do produto;
-nome do produto;
-embalagem;
-tamanho;
-sabor;
-preco de lista.
-*/
-
-CREATE TABLE [TABELA DE PRODUTOS]
-(
-[CODIGO DO PRODUTO] [VARCHAR] (20) NOT NULL PRIMARY KEY,
-[NOME DO PRODUTO] [VARCHAR] (50),
-[EMBALAGEM] [VARCHAR] (50),
-[TAMANHO] [VARCHAR] (50),
-[SABOR] [VARCHAR] (50),
-[PRECO DE LISTA] [SMALLMONEY]
-)
-
-
-
--- Alterar tabela
-
-ALTER TABLE [TABELA DE CLIENTES] ALTER COLUMN [CPF] CHAR(11) NOT NULL;
-
-ALTER TABLE [TABELA DE CLIENTES] ADD CONSTRAINT PK_TABELA_CLIENTES
-PRIMARY KEY CLUSTERED ([CPF])
+INSERT INTO [TABELA DE PRODUTOS]
+VALUES
+('1042712','Linha Citros - 700 ml - Limão','Garrafa','Limão','700 ml',4.90),
+('788975','Pedaços de Frutas - 1,5 Litros - Maça','PET','Maça','1,5 Litros',18.01),
+('1002767','Videira do Campo - 700 ml - Cereja/Maça','Garrafa','Cereja/Maça','700 ml',8.41),
+('231776','Festival de Sabores - 700 ml - Açai','Garrafa','Açai','700 ml',13.31),
+('479745','Clean - 470 ml - Laranja','Garrafa','Laranja','470 ml',3.76),
+('1051518','Frescor do Verão - 470 ml - Limão','Garrafa','Limão','470 ml',3.29),
+('1101035','Linha Refrescante - 1 Litro - Morango/Limão','PET','Morango/Limão','1 Litro',9.01),
+('229900','Pedaços de Frutas - 350 ml - Maça','Lata','Maça','350 ml',4.21),
+('1086543','Linha Refrescante - 1 Litro - Manga','PET','Manga','1 Litro',11.01),
+('695594','Festival de Sabores - 1,5 Litros - Açai','PET','Açai','1,5 Litros',28.51),
+('838819','Clean - 1,5 Litros - Laranja','PET','Laranja','1,5 Litros',12.01),
+('326779','Linha Refrescante - 1,5 Litros - Manga','PET','Manga','1,5 Litros',16.51),
+('520380','Pedaços de Frutas - 1 Litro - Maça','PET','Maça','1 Litro',12.01),
+('1041119','Linha Citros - 700 ml - Lima/Limão','Garrafa','Lima/Limão','700 ml',4.90),
+('243083','Festival de Sabores - 1,5 Litros - Maracujá','PET','Maracujá','1,5 Litros',10.51),
+('394479','Sabor da Montanha - 700 ml - Cereja','Garrafa','Cereja','700 ml',8.40),
+('746596','Light - 1,5 Litros - Melancia','PET','Melancia','1,5 Litros',19.50),
+('773912','Clean - 1 Litro - Laranja','PET','Laranja','1 Litro',8.01),
+('826490','Linha Refrescante - 700 ml - Morango/Limão','Garrafa','Morango/Limão','700 ml',6.31),
+('723457','Festival de Sabores - 700 ml - Maracujá','Garrafa','Maracujá','700 ml',4.91),
+('812829','Clean - 350 ml - Laranja','Lata','Laranja','350 ml',2.80),
+('290478','Videira do Campo - 350 ml - Melancia','Lata','Melancia','350 ml',4.56),
+('783663','Sabor da Montanha - 700 ml - Morango','Garrafa','Morango','700 ml',7.70),
+('235653','Frescor do Verão - 350 ml - Manga','Lata','Manga','350 ml',3.85),
+('1002334','Linha Citros - 1 Litro - Lima/Limão','PET','Lima/Limão','1 Litro',7.00),
+('1013793','Videira do Campo - 2 Litros - Cereja/Maça','PET','Cereja/Maça','2 Litros',24.01),
+('1096818','Linha Refrescante - 700 ml - Manga','Garrafa','Manga','700 ml',7.71),
+('1022450','Festival de Sabores - 2 Litros - Açai','PET','Açai','2 Litros',38.01);
